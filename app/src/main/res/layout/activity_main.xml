@@ -11,11 +11,12 @@
         android:id="@+id/username_et"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
-        android:layout_marginTop="45dp"
+        android:layout_marginTop="43dp"
+        android:hint="Username"
         android:inputType="textPersonName"
         tools:layout_editor_absoluteX="85dp"
         tools:layout_editor_absoluteY="36dp" />
@@ -29,6 +30,7 @@
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
         android:layout_marginTop="130dp"
+        android:hint="Password"
         android:inputType="textPassword"
         tools:layout_editor_absoluteX="85dp"
         tools:layout_editor_absoluteY="110dp" />
@@ -42,23 +44,5 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="200dp"
         android:text="Log In" />
-
-    <TextView
-        android:id="@+id/username_title_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/username_et"
-        android:layout_marginTop="30dp"
-        android:text="Username" />
-
-    <TextView
-        android:id="@+id/password_title_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/password_et"
-        android:layout_alignStart="@+id/username_et"
-        android:layout_marginBottom="-130dp"
-        android:text="Password" />
 
 </RelativeLayout>
