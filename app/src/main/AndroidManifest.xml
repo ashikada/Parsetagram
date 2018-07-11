@@ -3,6 +3,8 @@
     package="me.ashikada.parsetagram">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <!--still have to give permission on mobile to access storage on device (rather than emulator)-->
 
     <application
         android:name=".ParseApp"
