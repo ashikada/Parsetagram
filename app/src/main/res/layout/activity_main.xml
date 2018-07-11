@@ -15,7 +15,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
-        android:layout_marginTop="43dp"
+        android:layout_marginTop="240dp"
         android:hint="Username"
         android:inputType="textPersonName"
         tools:layout_editor_absoluteX="85dp"
@@ -29,20 +29,40 @@
         android:layout_alignParentTop="true"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
-        android:layout_marginTop="130dp"
+        android:layout_marginTop="300dp"
         android:hint="Password"
         android:inputType="textPassword"
-        tools:layout_editor_absoluteX="85dp"
-        tools:layout_editor_absoluteY="110dp" />
+         />
 
     <Button
         android:id="@+id/login_btn"
-        style="@style/Widget.AppCompat.Button.Colored"
+        android:background="@color/blue_5"
+        android:textColor="@color/white"
         android:layout_width="367dp"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="380dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
         android:text="Log In" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="96dp"
+        android:layout_height="80dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="45dp"
+        app:srcCompat="@drawable/icon" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="83dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="126dp"
+        app:srcCompat="@drawable/nav_logo_whiteout" />
 
 </RelativeLayout>
