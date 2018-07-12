@@ -7,16 +7,20 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.parse.LogInCallback;
 import com.parse.ParseException;
 import com.parse.ParseUser;
+import com.parse.SignUpCallback;
 
 public class MainActivity extends AppCompatActivity {
 
     private EditText usernameInput;
     private EditText passwordInput;
+    private EditText emailInput;
     private Button loginBtn;
+    private Button signUpBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +30,10 @@ public class MainActivity extends AppCompatActivity {
         //get references to the variables
         usernameInput = findViewById(R.id.username_et);
         passwordInput = findViewById(R.id.password_et);             //et means EditText
+        emailInput = findViewById(R.id.email_et);
         loginBtn = findViewById(R.id.login_btn);
+        signUpBtn = findViewById(R.id.signUp_btn);
+
 
         loginBtn.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -35,6 +42,17 @@ public class MainActivity extends AppCompatActivity {
                 final String password = passwordInput.getText().toString();
 
                 login(username, password);
+            }
+        });
+
+        signUpBtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                final String username = usernameInput.getText().toString();
+                final String password = passwordInput.getText().toString();
+                final String email = emailInput.getText().toString();
+
+                signUp(username, password, email);
             }
         });
 
@@ -59,5 +77,40 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
+
+        //my own method
+    private void signUp(String username, String password, String email){
+        ParseUser user = new ParseUser();
+
+        user.setUsername(username);
+        user.setPassword(password);
+        user.setEmail(email);
+
+            // Set custom properties
+//        user.put("phone", "650-253-0000");
+
+            // Invoke signUpInBackground
+        user.signUpInBackground(new SignUpCallback() {
+            public void done(ParseException e) {
+                if (e == null) {
+                    Log.d("LoginActivity", "Sign up successful!");
+
+
+                    final Intent intent = new Intent(MainActivity.this, MainActivity.class);
+                    startActivity(intent);
+
+                    Toast.makeText(getApplicationContext(), "Done!", Toast.LENGTH_LONG).show();
+
+                    finish();
+
+                } else {
+                    Log.e("LoginActivity", "Sign up failure.");
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
+
+
 
 }
