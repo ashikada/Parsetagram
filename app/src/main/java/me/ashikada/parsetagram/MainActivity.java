@@ -65,11 +65,12 @@ public class MainActivity extends AppCompatActivity {
                 if(e == null ){          //if there's no errors
                     Log.d("LoginActivity", "Login successful!");
 
-                    final Intent intent = new Intent(MainActivity.this, HomeActivity.class);
+                    final Intent intent = new Intent(MainActivity.this, PostActivity.class);
                     startActivity(intent);
                     finish();
                 }
                 else {
+                    Toast.makeText(getApplicationContext(), "Unsuccessful", Toast.LENGTH_LONG).show();
                     Log.e("LoginActivity", "Login failure.");
                     e.printStackTrace();
                 }
@@ -104,6 +105,7 @@ public class MainActivity extends AppCompatActivity {
                     finish();
 
                 } else {
+                    Toast.makeText(getApplicationContext(), "Unsuccessful", Toast.LENGTH_LONG).show();
                     Log.e("LoginActivity", "Sign up failure.");
                     e.printStackTrace();
                 }

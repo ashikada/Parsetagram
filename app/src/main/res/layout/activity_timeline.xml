@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TimelineActivity">
+
+    <ImageView
+        android:id="@+id/toolBar"
+        android:layout_width="503dp"
+        android:layout_height="72dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        app:srcCompat="@color/white"
+        android:backgroundTint="@color/grey_0"/>
+
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/swipeContainer"
+        android:layout_width="match_parent"
+        android:layout_height="435dp">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rvPosts"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            app:layout_constraintBottom_toTopOf="@+id/toolBar"
+            app:layout_constraintTop_toTopOf="parent"
+            android:backgroundTint="@color/grey_0"
+            />
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+    <ImageView
+        android:id="@+id/home_btn"
+        android:layout_width="35dp"
+        android:layout_height="38dp"
+        app:srcCompat="@drawable/instagram_home_filled_24"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="18dp"
+        android:layout_marginLeft="40dp"
+
+        />
+
+    <ImageView
+        android:id="@+id/capture_btn_picture"
+        android:layout_width="35dp"
+        android:layout_height="38dp"
+        android:layout_alignTop="@+id/home_btn"
+        android:layout_centerHorizontal="true"
+        app:srcCompat="@drawable/instagram_new_post_outline_24" />
+
+    <ImageView
+        android:id="@+id/profile_iv"
+        android:layout_width="35dp"
+        android:layout_height="38dp"
+        android:layout_alignTop="@+id/home_btn"
+        android:layout_marginBottom="18dp"
+        android:layout_marginLeft="300dp"
+        app:srcCompat="@drawable/instagram_user_outline_24" />
+
+    <Button
+        android:id="@+id/capture_btn"
+        android:layout_width="40dp"
+        android:layout_height="32dp"
+        android:layout_alignTop="@+id/home_btn"
+        android:layout_centerHorizontal="true"
+        android:background="@color/white_5_transparent"
+        android:onClick="goToCapture"/>
+
+
+</RelativeLayout>

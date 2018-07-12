@@ -3,9 +3,9 @@
     package="me.ashikada.parsetagram">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <!--still have to give permission on mobile to access storage on device (rather than emulator)-->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
+    <!-- still have to give permission on mobile to access storage on device (rather than emulator) -->
     <application
         android:name=".ParseApp"
         android:allowBackup="true"
@@ -21,7 +21,19 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".HomeActivity"></activity>
+        <activity android:name=".PostActivity" />
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.codepath.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/fileprovider" />
+        </provider>
+
+        <activity android:name=".TimelineActivity"></activity>
     </application>
 
 </manifest>
