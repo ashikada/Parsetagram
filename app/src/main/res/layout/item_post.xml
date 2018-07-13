@@ -11,23 +11,36 @@
         android:layout_width="match_parent"
         android:layout_height="326dp"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/username_tv"
+        android:layout_below="@+id/timestamp_tv"
         app:srcCompat="@android:color/black" />
 
     <TextView
         android:id="@+id/username_tv"
-        android:layout_width="match_parent"
+        android:layout_width="207dp"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:text="TextView" />
+        android:layout_marginTop="10dp"
+        android:text="TextView"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/timestamp_tv"
+        android:layout_width="177dp"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf= "@+id/username_tv"
+        android:layout_marginTop="10dp"
+        android:layout_alignParentEnd="true"
+        android:text="TextView"
+        android:textSize="15sp" />
 
     <TextView
         android:id="@+id/description_tv"
         android:layout_width="match_parent"
-        android:layout_height="18dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/image_post_iv"
-        android:text="TextView" />
+        android:text="TextView"
+        android:textSize="20sp" />
 
 </RelativeLayout>

@@ -9,7 +9,8 @@
     </style>
 
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-
+        <item name="colorPrimary">@color/purple_5</item>
+        <item name="colorPrimaryDark">@color/black</item>
     </style>
 
 </resources>

@@ -47,6 +47,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
         //populate the views according to this (user name and body, then image)
         holder.tvUsername.setText(post.getUser().getUsername());
         holder.tvDesc.setText(post.getDescription());
+        holder.tvTimestamp.setText(post.getCreatedAt().toString());
 
         Glide.with(context).load(post.getImage().getUrl()).into(holder.ivPost);
     }
@@ -62,6 +63,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
         public ImageView ivPost;
         public TextView tvUsername;
         public TextView tvDesc;
+        public TextView tvTimestamp;
 
         public ViewHolder(View itemView){
             super(itemView);
@@ -71,6 +73,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
             ivPost = (ImageView) itemView.findViewById(R.id.image_post_iv);
             tvUsername = (TextView) itemView.findViewById(R.id.username_tv);
             tvDesc = (TextView) itemView.findViewById(R.id.description_tv);
+            tvTimestamp = (TextView) itemView.findViewById(R.id.timestamp_tv);
 
 
         }

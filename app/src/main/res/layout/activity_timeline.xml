@@ -73,5 +73,16 @@
         android:background="@color/white_5_transparent"
         android:onClick="goToCapture"/>
 
+    <Button
+        android:id="@+id/logout_btn"
+        android:layout_width="40dp"
+        android:layout_height="32dp"
+        android:layout_alignTop="@+id/home_btn"
+        android:layout_marginBottom="18dp"
+        android:layout_marginLeft="300dp"
+        android:background="@color/white_5_transparent"
+        android:onClick=""
+        />
+
 
 </RelativeLayout>

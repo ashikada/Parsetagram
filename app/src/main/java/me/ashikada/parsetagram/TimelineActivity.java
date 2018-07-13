@@ -2,6 +2,7 @@ package me.ashikada.parsetagram;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -11,7 +12,6 @@ import com.parse.FindCallback;
 import com.parse.ParseException;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 import me.ashikada.parsetagram.model.Post;
@@ -21,6 +21,7 @@ public class TimelineActivity extends AppCompatActivity {
     PostAdapter postAdapter;
     ArrayList<Post> posts;
     RecyclerView rvPosts;
+    private SwipeRefreshLayout swipeContainer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +38,19 @@ public class TimelineActivity extends AppCompatActivity {
 
         //set the adapter
         rvPosts.setAdapter(postAdapter);
-
+        // Lookup the swipe container view
+        swipeContainer = (SwipeRefreshLayout) findViewById(R.id.swipeContainer);
+        // Setup refresh listener which triggers new data loading
+        swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                // Your code to refresh the list here.
+                // Make sure you call swipeContainer.setRefreshing(false)
+                // once the network request has completed successfully.
+                loadTopPosts();
+                rvPosts.scrollToPosition(0);
+            }
+        });
 
         loadTopPosts();
     }
@@ -53,8 +66,9 @@ public class TimelineActivity extends AppCompatActivity {
                 if(e == null){
 
                     posts.addAll(objects);
-                    Collections.reverse(posts);
                     postAdapter.notifyDataSetChanged();
+
+                    swipeContainer.setRefreshing(false);
 
                 }
                 else {
