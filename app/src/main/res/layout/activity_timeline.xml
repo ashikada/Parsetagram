@@ -81,7 +81,6 @@
         android:layout_marginBottom="18dp"
         android:layout_marginLeft="300dp"
         android:background="@color/white_5_transparent"
-        android:onClick=""
         />
 
 
