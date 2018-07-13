@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
                 if(e == null ){          //if there's no errors
                     Log.d("LoginActivity", "Login successful!");
 
-                    final Intent intent = new Intent(MainActivity.this, PostActivity.class);
+                    final Intent intent = new Intent(MainActivity.this, TimelineActivity.class);
                     startActivity(intent);
                     finish();
                 }

@@ -20,7 +20,8 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/swipeContainer"
         android:layout_width="match_parent"
-        android:layout_height="435dp">
+        android:layout_height="match_parent"
+        android:layout_above="@id/toolBar">
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/rvPosts"

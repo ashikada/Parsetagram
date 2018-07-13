@@ -3,22 +3,41 @@ package me.ashikada.parsetagram;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.parse.FindCallback;
 import com.parse.ParseException;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import me.ashikada.parsetagram.model.Post;
 
 public class TimelineActivity extends AppCompatActivity {
 
+    PostAdapter postAdapter;
+    ArrayList<Post> posts;
+    RecyclerView rvPosts;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_timeline);
+
+        //instantiate
+        posts = new ArrayList<>();
+        postAdapter = new PostAdapter(posts);
+        rvPosts = (RecyclerView) findViewById(R.id.rvPosts);
+
+        //RecyclerView setup (layout manager, use adapter)
+        rvPosts.setLayoutManager(new LinearLayoutManager(this));
+
+        //set the adapter
+        rvPosts.setAdapter(postAdapter);
+
 
         loadTopPosts();
     }
@@ -33,12 +52,9 @@ public class TimelineActivity extends AppCompatActivity {
             public void done(List<Post> objects, ParseException e) {
                 if(e == null){
 
-                    for(int i = 0; i< objects.size();i++){
-                        Log.d("PostActivity", "Post[" + i + "] = "
-                                + objects.get(i).getDescription()
-                                + "\nusername = " + objects.get(i).getUser().getUsername()
-                        );
-                    }
+                    posts.addAll(objects);
+                    Collections.reverse(posts);
+                    postAdapter.notifyDataSetChanged();
 
                 }
                 else {
